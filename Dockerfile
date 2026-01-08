@@ -13,8 +13,6 @@ COPY --from=build /app/publish .
 # 從 build 階段複製資料庫檔案
 COPY --from=build /src/CleanBus.db .
 
-# 設定 PORT 環境變數，讓 Program.cs 正確讀取
-ENV PORT=10000
-EXPOSE 10000
+EXPOSE 5000
 
 ENTRYPOINT ["dotnet", "KKHCleanBus.MicroServices.dll"]
